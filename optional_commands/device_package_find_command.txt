@@ -1,0 +1,5 @@
+#to find app package and app activity of any app :
+adb shell dumpsys window | findstr mCurrentFocus
+
+#to find the internal app activity:
+adb -s (device_serial_number) shell cmd package resolve-activity --brief -a android.intent.action.MAIN -c android.intent.category.LAUNCHER (app package)

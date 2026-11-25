@@ -1,0 +1,118 @@
+# ============================================================
+# MakeMyTrip Android Villa Search Automation
+# Complete environment and Python dependency checklist
+# ============================================================
+#
+# IMPORTANT:
+# This file is for Python packages installed with pip.
+# Python, PyCharm, Node.js, Appium Server, Appium Inspector,
+# Android SDK / ADB and the UiAutomator2 driver are separate
+# applications/tools and cannot be installed by pip from this file.
+#
+# ------------------------------------------------------------
+# 1. INSTALL THESE PREREQUISITES SEPARATELY
+# ------------------------------------------------------------
+#
+# A. Python
+#    Install Python 3.10 or newer (use a version supported by
+#    the Appium Python Client and the packages below).
+#    During Windows installation, enable "Add Python to PATH".
+#
+# B. PyCharm IDE
+#    Install PyCharm and configure it to use the Python interpreter
+#    or virtual environment for this project.
+#
+# C. Node.js and npm
+#    Install a supported Node.js LTS release. npm is included
+#    with Node.js and is used to install Appium Server.
+#
+# D. Appium Server
+#    Install Appium Server (Appium 2.x or a compatible newer release):
+#       npm install -g appium
+#
+# E. Android UiAutomator2 driver for Appium
+#       appium driver install uiautomator2
+#
+# F. Appium Inspector
+#    Install Appium Inspector separately. It is used to inspect
+#    Android application screens and identify element locators.
+#
+# G. Android SDK / ADB
+#    Install Android SDK Platform Tools and configure ANDROID_HOME
+#    (or ANDROID_SDK_ROOT) and the platform-tools folder in PATH.
+#    Enable Developer Options and USB debugging on the Android device.
+#
+# H. Device connection check
+#       adb devices
+#
+# I. Start Appium Server before running the tests:
+#       appium
+#
+# NOTE:
+# Java source code is NOT used in this project. Python is the
+# programming language used for the automation. Android SDK and
+# Appium driver setup may have their own platform prerequisites.
+#
+# ------------------------------------------------------------
+# 2. INSTALL PYTHON PACKAGES
+# ------------------------------------------------------------
+# Install all packages below from the project root with:
+#       python -m pip install -r requirements.txt
+#
+# Appium Python client: connect Python tests to Appium Server
+Appium-Python-Client
+
+# Pytest: test execution, fixtures and parametrization
+pytest
+
+# Selenium WebDriver APIs used by the Appium client / project
+selenium
+
+# openpyxl: read test data from Microsoft Excel workbooks
+openpyxl
+
+# Allure integration for Pytest and screenshot attachments
+allure-pytest
+
+# Optional alternative report: standalone HTML report from Pytest
+pytest-html
+
+# ------------------------------------------------------------
+# 3. PYTHON STANDARD-LIBRARY MODULES USED
+# ------------------------------------------------------------
+# These are included with Python; do NOT install them with pip:
+#   time
+#   logging
+#   os (if used)
+#   configparser (if used)
+#
+# ------------------------------------------------------------
+# 4. REPORTING COMMANDS
+# ------------------------------------------------------------
+# Allure results:
+#   python -m pytest TestCases/test_Villa_search_flow.py -s --alluredir=TestCases/allure-report/allure_raw_data
+#
+# Generate Allure HTML report:
+#   allure generate TestCases/allure-report/allure_raw_data -o TestCases/allure-report/my_allure_report --clean
+#
+# Open generated Allure report:
+#   allure open TestCases/allure-report/my_allure_report
+#
+# Allure Commandline is a separate installation; installing
+# allure-pytest above does NOT install the Allure CLI.
+#
+# Optional Pytest HTML report:
+#   python -m pytest TestCases/test_Villa_search_flow.py -s -v --html=TestCases/my_report.html --self-contained-html
+#
+# ------------------------------------------------------------
+# 5. PROJECT-SPECIFIC CONFIGURATION
+# ------------------------------------------------------------
+# Before running on another computer, update:
+#   - Android deviceName / device serial in the project configuration
+#   - appPackage and appActivity for the installed MakeMyTrip app
+#   - Excel workbook path and worksheet name
+#   - Location values and expected villa names used by assertions
+#   - Element locators if the app version or device UI differs
+#
+# Python packages listed above are the pip dependencies.
+# External tools listed in the comments must be installed separately.

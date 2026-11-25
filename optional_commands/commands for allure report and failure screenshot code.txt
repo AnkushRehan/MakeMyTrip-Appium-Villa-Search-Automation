@@ -1,0 +1,21 @@
+##
+##failed test case screenshot code 
+@pytest.hookimpl(hookwrapper=True) #take screen shot if the testcase falls in failure
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    report = outcome.get_result()
+
+    if report.when == "call" and report.failed:
+        driver = item.funcargs.get("setup") #add fixture name here
+
+        if driver:
+            allure.attach(
+                driver.get_screenshot_as_png(),
+                name="Failed_Test_Screenshot",
+                attachment_type=allure.attachment_type.PNG
+            )
+
+##allure report generation with screenshot 
+# python -m pytest test_Villa_search_flow.py -s --alluredir=allure-report/allure_raw_data
+# allure generate allure-report/allure_raw_data -o allure-report/my_allure_report --clean
+#allure open allure-report/my_allure_report
